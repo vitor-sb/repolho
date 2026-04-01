@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para você ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Fundo rosa igual para envelope e carta aberta */
+#envelopeScreen,
+#letterScreen {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#envelopeScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope-text-top {
+  color: #ff4d6d;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.letter-image {
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.envelope-text-bottom {
+  color: #666;
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Tela da carta */
+#letterScreen {
+  display: none;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  overflow-y: auto;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  margin: 20px;
+  border-radius: 20px;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+h1 {
+  color: #ff4d6d;
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.heart {
+  font-size: 36px;
+  margin-top: 20px;
+  animation: pulse 1.2s infinite;
+}
+
+/* Tela do amor */
+#loveScreen {
+  display: none;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+.love-image {
+  width: 250px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.love-text {
+  color: #ff4d6d;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.love-subtitle {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+<body>
+
+<!-- Envelope -->
+<div id="envelopeScreen">
+  <div class="envelope-text-top">Para você</div>
+  <img src="assets/image.png" alt="Carta" class="letter-image">
+  <div class="envelope-text-bottom">Clique na carta</div>
+</div>
+
+<!-- Carta -->
+<div id="letterScreen">
+  <div class="card">
+    <h1>Para você</h1>
+
+    <p>
+      Eu não preciso de você, mas escolho você todos os dias.
+      <br><br>
+      Entre todas as pessoas, todos os caminhos e todas as versões da minha vida,
+      ainda assim eu escolheria você.
+      <br><br>
+      Obrigado por fazer meus dias mais leves e por ser a melhor parte deles.
+    </p>
+
+    <div class="heart">❤️</div>
+  </div>
+  <button id="downloadPdf" style="margin-top: 20px; padding: 10px 20px; background: #ff4d6d; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 16px;">
+    Você gosta de flores?
+  </button>
+</div>
+
+<!-- Tela do amor -->
+<div id="loveScreen">
+  <div class="love-text">Eu te amo</div>
+  <div class="love-subtitle">Para você, meu xuxuzinho</div>
+  <img src="assets/gatito.jpg" alt="Gatito" class="love-image">
+  <button id="backButton" style="margin-top: 20px; padding: 10px 20px; background: #ff4d6d; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 16px;">Voltar</button>
+</div>
+
+<script>
+function toggleLetter() {
+  const envelope = document.getElementById("envelopeScreen");
+  const letter = document.getElementById("letterScreen");
+
+  if (envelope.style.display !== "none") {
+    envelope.style.display = "none";
+    letter.style.display = "flex";
+  } else {
+    envelope.style.display = "flex";
+    letter.style.display = "none";
+  }
+}
+
+// No clique na carta, alterna o estado
+document.querySelector(".letter-image").addEventListener("click", toggleLetter);
+document.getElementById("letterScreen").addEventListener("click", toggleLetter);
+
+// Ir para tela do amor
+document.getElementById("downloadPdf").addEventListener("click", function(event) {
+  event.stopPropagation(); // Impede que o clique feche a carta
+  document.getElementById("letterScreen").style.display = "none";
+  document.getElementById("loveScreen").style.display = "flex";
+});
+
+// Voltar da tela do amor para a carta
+document.getElementById("backButton").addEventListener("click", function() {
+  document.getElementById("loveScreen").style.display = "none";
+  document.getElementById("letterScreen").style.display = "flex";
+});
+</script>
+
+</body>
+</html>
