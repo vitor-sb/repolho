@@ -62,6 +62,14 @@ body {
   overflow-y: auto;
 }
 
+.letter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+
 .card {
   background: white;
   padding: 25px;
@@ -148,25 +156,27 @@ p {
 
 <!-- Carta -->
 <div id="letterScreen">
-  <div class="card">
-    <h1>Para você</h1>
+  <div class="letter-content">
+    <div class="card">
+      <h1>Para você</h1>
 
-    <p>
-      Eu não preciso de você, mas ainda sim  te escolho você todos os dias.
-      <br><br>
-      Entre todas as pessoas, todos os caminhos e todas as versões da minha vida,
-      ainda assim eu escolheria você.
-      <br><br>
-      Obrigado por fazer meus dias mais leves e por ser a melhor parte deles quando estamos juntos.
-      <br><br>
-      Eu te amo, meu xuxuzinho.
-    </p>
+      <p>
+        Eu não preciso de você, mas ainda sim  te escolho você todos os dias.
+        <br><br>
+        Entre todas as pessoas, todos os caminhos e todas as versões da minha vida,
+        ainda assim eu escolheria você.
+        <br><br>
+        Obrigado por fazer meus dias mais leves e por ser a melhor parte deles quando estamos juntos.
+        <br><br>
+        Eu te amo, meu xuxuzinho.
+      </p>
 
-    <div class="heart">❤️</div>
+      <div class="heart">❤️</div>
+    </div>
+    <button id="downloadPdf" style="margin-top: 20px; padding: 10px 20px; background: #ff4d6d; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 16px;">
+      Você gosta de flores?
+    </button>
   </div>
-  <button id="downloadPdf" style="margin-top: 20px; padding: 10px 20px; background: #ff4d6d; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 16px;">
-    Você gosta de flores?
-  </button>
 </div>
 
 <!-- Tela do amor -->
